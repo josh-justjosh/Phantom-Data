@@ -5,10 +5,11 @@ import datetime
 def getlisteners(url):
     stats = json.loads(requests.get(url).text)
     print(stats)
-    try:
-        listeners = stats['icestats']['source'][0]['listeners']
-    except KeyError:
-        listeners = stats['icestats']['source']['listeners']
+    for source in stats['icestats']['source']:
+        if source['listenurl'] == 'http://nebula.shoutca.st:8491/stream':
+            listeners = source['listeners']
+    #except KeyError:
+     #   listeners = stats['icestats']['source']['listeners']
     return listeners
 
 def now():

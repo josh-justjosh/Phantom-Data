@@ -32,6 +32,6 @@ with open('_data/PhantomListeners.json','wt', encoding='utf-8', newline='\n') as
     f.write(json.dumps(olddata,indent=4)+"\n")
     print(now(),"PhantomListeners.json saved")
 
-with open('_data/PhantomListeners.csv','wt', encoding='utf-8', newline='\n') as f:
-    f.write(str(newdata['time'])+','+str(newdata['listeners']))
+with open('_data/PhantomListeners.csv','a', encoding='utf-8', newline='\n') as f:
+    f.write(str(newdata['time'])+','+str(newdata['listeners'])+'\n')
     print(now(),"PhantomListeners.csv saved")
